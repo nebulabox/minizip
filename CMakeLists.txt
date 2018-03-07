@@ -3,7 +3,7 @@
 # E-Mail:     schmieder.matthias@gmail.com
 # Year:       2016
 #***************************************************************************
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.6)
 
 option(USE_ZLIB "Enables building with ZLIB library" ON)
 option(USE_BZIP2 "Enables building with BZIP2 library" ON)
@@ -29,11 +29,6 @@ set(INSTALL_INC_DIR ${CMAKE_INSTALL_INCLUDEDIR} CACHE PATH "Installation directo
 set(INSTALL_MAN_DIR ${CMAKE_INSTALL_MANDIR} CACHE PATH "Installation directory for manual pages")
 set(INSTALL_PKGCONFIG_DIR ${CMAKE_INSTALL_LIBDIR}/pkgconfig CACHE PATH "Installation directory for pkgconfig (.pc) files")
 set(INSTALL_CMAKE_DIR ${CMAKE_INSTALL_LIBDIR}/cmake/minizip CACHE PATH "Installation directory for cmake files.")
-
-set(VERSION "2.2.7")
-
-# Set cmake debug postfix to d
-set(CMAKE_DEBUG_POSTFIX "d")
 
 # Ensure correct version of zlib is referenced
 if(USE_ZLIB)
@@ -329,7 +324,7 @@ if(USE_ZLIB)
     target_link_libraries(${PROJECT_NAME} ZLIB::ZLIB)
 endif()
 if(USE_LZMA)
-    set_target_properties(${PROJECT_NAME} PROPERTIES C_STANDARD 99)
+    set_target_properties(${PROJECT_NAME} PROPERTIES C_STANDARD 11)
 endif()
 if(UNIX)
     target_link_libraries(${PROJECT_NAME} ${LIBBSD_LIBRARIES})
