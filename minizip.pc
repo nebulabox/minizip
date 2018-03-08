@@ -1,0 +1,13 @@
+prefix=/usr/local
+exec_prefix=/usr/local
+libdir=lib
+sharedlibdir=lib
+includedir=include
+
+Name: minizip
+Description: Minizip zip file manipulation library
+Version: 
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz -lminizip
+Cflags: -I${includedir}
